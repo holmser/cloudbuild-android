@@ -27,6 +27,8 @@ steps:
     '--network', 'cloudbuild',
     '.'
   ]
+
+-
 options:
   logging: CLOUD_LOGGING_ONLY
 
@@ -34,9 +36,9 @@ images:
 - 'docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android:${SHORT_SHA}'
 - 'docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android:latest'
 
-artifacts:
-  objects:
-    location: 'gs://${PROJECT_ID}-build-target/'
-    paths: ['/persistent_volume/app/build/outputs/apk/debug/']
+# artifacts:
+#   objects:
+#     location: 'gs://${PROJECT_ID}-build-target/'
+#     paths: ['/persistent_volume/app/build/outputs/apk/debug/']
 
 
