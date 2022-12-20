@@ -9,8 +9,8 @@ steps:
     - 'REV=$REVISION_ID'
   args: [
     'build',
-    '-t', 'eu.gcr.io/$PROJECT_ID/cloudbuild-android:${SHORT_SHA}',
-    '-t', 'eu.gcr.io/$PROJECT_ID/cloudbuild-android:latest',
+    '-t', 'docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android:${SHORT_SHA}',
+    '-t', 'docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android:latest',
 
     # These are used by Cloud Build variable substitutions (as shown in screenshot_01.png):
     # https://cloud.google.com/cloud-build/docs/configuring-builds/substitute-variable-values
@@ -27,7 +27,16 @@ steps:
     '--network', 'cloudbuild',
     '.'
   ]
+options:
+  logging: CLOUD_LOGGING_ONLY
 
 images:
-- 'eu.gcr.io/$PROJECT_ID/cloudbuild-android:${SHORT_SHA}'
-- 'eu.gcr.io/$PROJECT_ID/cloudbuild-android:latest'
+- 'docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android:${SHORT_SHA}'
+- 'docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android:latest'
+
+artifacts:
+  objects:
+    location: 'gs://${PROJECT_ID}-build-target/'
+    paths: ['/persistent_volume/app/build/outputs/apk/debug/']
+
+
