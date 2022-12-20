@@ -10,7 +10,7 @@ steps:
   args: [
     'build',
     '-t', 'us-central1-docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android:${SHORT_SHA}',
-    '-t', 'us-central1-docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-androidcloudbuild-android:latest',
+    '-t', 'us-central1-docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android:latest',
 
     # These are used by Cloud Build variable substitutions (as shown in screenshot_01.png):
     # https://cloud.google.com/cloud-build/docs/configuring-builds/substitute-variable-values
