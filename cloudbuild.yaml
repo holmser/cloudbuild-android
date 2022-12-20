@@ -9,8 +9,8 @@ steps:
     - 'REV=$REVISION_ID'
   args: [
     'build',
-    '-t', 'docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android:${SHORT_SHA}',
-    '-t', 'docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android:latest',
+    '-t', 'us-central1-docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android:${SHORT_SHA}',
+    '-t', 'us-central1-docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-androidcloudbuild-android:latest',
 
     # These are used by Cloud Build variable substitutions (as shown in screenshot_01.png):
     # https://cloud.google.com/cloud-build/docs/configuring-builds/substitute-variable-values
@@ -41,12 +41,14 @@ steps:
 #     path: /persistent_volume
 #   args: ['run', '-v', 'data:/workspace', '--rm', 'us-central1-docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android', '/bin/sh', '-c', 'cd /workspace && ./gradlew mobile:assembleDebug && mv mobile/build/outputs/apk/debug/mobile-debug.apk mobile/build/outputs/apk/debug/$REPO_NAME-$SHORT_SHA-debug.apk && ls -la mobile/build/outputs/apk/debug/$REPO_NAME-$SHORT_SHA-debug.apk']
 
-options:
-  logging: CLOUD_LOGGING_ONLY
+
 
 images:
-- 'docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android:${SHORT_SHA}'
-- 'docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android:latest'
+- 'us-central1-docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android/cloudbuild-android:${SHORT_SHA}'
+- 'us-central1-docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android/cloudbuild-android:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
 
 # artifacts:
 #   objects:
