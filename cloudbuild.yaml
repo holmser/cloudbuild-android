@@ -44,8 +44,8 @@ steps:
 
 
 images:
-- 'us-central1-docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android:${SHORT_SHA}'
-- 'us-central1-docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android/cloudbuild-android:latest'
+- 'us-central1-docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android:${SHORT_SHA}'
+- 'us-central1-docker.pkg.dev/firebase-cloudbuild-demo/firebase-cloudbuild-demo/cloudbuild-android:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY
